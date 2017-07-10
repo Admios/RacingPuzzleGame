@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 	void SetCountText()
 	{		
 		countText.text = string.Format("Count: {0}", count);
-		if (count >= 100)
+		if (count >= 110)
 		{
 			winText.text = "You Win!";
 			GameManager.shared.LoadNextLevel();
