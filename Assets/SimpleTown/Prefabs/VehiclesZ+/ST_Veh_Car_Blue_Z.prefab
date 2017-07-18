@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 428284}
   - component: {fileID: 3316900}
   - component: {fileID: 2369556}
+  - component: {fileID: 65954252614852724}
+  - component: {fileID: 65643451612505600}
   m_Layer: 0
   m_Name: ST_Veh_Car_Blue_Z
   m_TagString: Untagged
@@ -117,9 +119,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194810}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.5247056, y: -0.14442325, z: -0.80823535}
+  m_LocalScale: {x: 0.11764712, y: 0.9532888, z: 0.11764711}
   m_Children:
   - {fileID: 420582}
   - {fileID: 424586}
@@ -127,7 +129,7 @@ Transform:
   - {fileID: 470434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &470434
 Transform:
   m_ObjectHideFlags: 1
@@ -184,6 +186,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2350806
 MeshRenderer:
@@ -215,6 +218,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2369556
 MeshRenderer:
@@ -246,6 +250,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2382754
 MeshRenderer:
@@ -277,6 +282,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2394562
 MeshRenderer:
@@ -308,6 +314,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3316900
 MeshFilter:
@@ -355,3 +362,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194810}
   m_IsPrefabParent: 1
+--- !u!65 &65643451612505600
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1628087, y: 2.268413, z: 5.323663}
+  m_Center: {x: 0, y: 1.4060061, z: 0.0000076293945}
+--- !u!65 &65954252614852724
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1628087, y: 2.268413, z: 5.323663}
+  m_Center: {x: -0.0000038146973, y: 1.4060061, z: 0}
