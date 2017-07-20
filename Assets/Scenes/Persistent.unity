@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0260a3afa7bfd46398ad77e8d68acfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedCar: {fileID: 0}
   Levels:
   - Minigame 1
   - Minigame 2

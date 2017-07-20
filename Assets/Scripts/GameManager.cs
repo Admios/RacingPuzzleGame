@@ -8,15 +8,27 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager shared { get; private set; }
 
+	public CarInfo SelectedCar;
+
+
 	public List<string> Levels;
 	public AudioSource Source;
 	private int currentLevelIndex = 0;
+
+	public void Logger(CarInfo info)
+	{
+		SelectedCar = info;
+		//Debug.Log ("Selected " + info.Name);
+
+		GameManager.shared.SelectedCar = info;
+	}
 
 	void Awake()
 	{
 		shared = this;
 		DontDestroyOnLoad (gameObject);
 		//DontDestroyOnLoad (DirectionalLight);
+
 	}
 
 	// Use this for initialization
@@ -62,6 +74,5 @@ public class GameManager : MonoBehaviour
 			currentLevelIndex += 1;
 		}
 
-		SceneManager.LoadScene (nextLevel);
 	}
 }
