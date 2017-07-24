@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager shared { get; private set; }
 
 	public CarInfo SelectedCar;
-
+	public PlayInfo CurrentInfo;
 
 	public List<string> Levels;
 	public AudioSource Source;
@@ -69,9 +69,13 @@ public class GameManager : MonoBehaviour
 		if (currentLevelIndex == Levels.Count) {
 			nextLevel = "Start";
 			currentLevelIndex = 0;
-		} else {
+		}
+		else
+		{
 			nextLevel = Levels [currentLevelIndex];
 			currentLevelIndex += 1;
+
+			CurrentInfo = new PlayInfo (nextLevel);
 		}
 
 	}
