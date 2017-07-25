@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+	public static PlayerController shared { get; private set; }
+
 	public float timePerItem = 5.0f;
 	public float timeRemaining = 10.0f;
 
@@ -17,12 +19,13 @@ public class PlayerController : MonoBehaviour
 	public ParticleSystem explosionEffect;
 
 	private int count;
+	public PlayInfo Timer;
 
 	void Start()
 	{
 		count = 0;
 		winText.text = "";
-		timerText.text = string.Format("{0:####} seconds", timeRemaining);
+		timerText.text =string.Format("{0:0}:{1:00}", Mathf.Floor(timeRemaining/60), timeRemaining % 60);
 		SetCountText();
 	}
 
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
 	{
 		timeRemaining -= Time.deltaTime;
 		if (timeRemaining <= 0.0f)
+			Timer = new PlayInfo (timerText.text);
 		{
 			GameManager.shared.PlayerDied();
 		}
@@ -72,6 +76,5 @@ public class PlayerController : MonoBehaviour
 			winText.text = "You Win!";
 			GameManager.shared.LoadNextLevel();
 		}
-
 	}
 }

@@ -13,16 +13,11 @@ public class EndScreen : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		TimeLabel.text = " " ;
-		BestScoreLabel.text = GameManager.shared.CurrentInfo.TopScore;
-		ScoreLabel.text = GameManager.shared.CurrentInfo.CollectedCoins;
+		TimeLabel.text = PlayerController.shared.Timer.ElapsedTime.ToString() ;
+		BestScoreLabel.text = GameManager.shared.CurrentInfo.TopScore.ToString();
+		ScoreLabel.text = GameManager.shared.CurrentInfo.CollectedCoins.ToString();
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	}
-		
+
 	public void OnClickContinue()
 	{
 		GameManager.shared.LoadNextLevel ();
