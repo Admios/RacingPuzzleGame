@@ -8,8 +8,7 @@ public class PlayerController : MonoBehaviour
 {
 	public static PlayerController shared { get; private set; }
 
-	public float timePerItem = 5.0f;
-	public float timeRemaining = 10.0f;
+	public float ElapsedTime = 0.0f;
 
 	public float speed; 
 	public Text countText;
@@ -19,26 +18,21 @@ public class PlayerController : MonoBehaviour
 	public ParticleSystem explosionEffect;
 
 	private int count;
-	public PlayInfo Timer;
+
 
 	void Start()
 	{
 		count = 0;
 		winText.text = "";
-		timerText.text =string.Format("{0:0}:{1:00}", Mathf.Floor(timeRemaining/60), timeRemaining % 60);
+		timerText.text =string.Format("{0:0}:{1:00}", Mathf.Floor(ElapsedTime/60), ElapsedTime % 60);
 		SetCountText();
 	}
 
 	void Update()
 	{
-		timeRemaining -= Time.deltaTime;
-		if (timeRemaining <= 0.0f)
-			Timer = new PlayInfo (timerText.text);
-		{
-			GameManager.shared.PlayerDied();
-		}
+		ElapsedTime += Time.deltaTime;
 
-		timerText.text = string.Format("{0:####} seconds", timeRemaining);
+		timerText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(ElapsedTime/60), ElapsedTime % 60);
 	}
 
 	void OnTriggerEnter(Collider other) 
@@ -47,8 +41,6 @@ public class PlayerController : MonoBehaviour
 		{
 			other.gameObject.SetActive(false);
 			count = count + 10;
-
-			timeRemaining += timePerItem;
 
 			SetCountText();
 		}
@@ -66,7 +58,7 @@ public class PlayerController : MonoBehaviour
 		explosionEffect.Play();
 		yield return rigidbody.IsSleeping();
 
-		GameManager.shared.PlayerDied();
+		GameManager.shared.LevelEnded(GameManager.EndLevelStatus.Death, ElapsedTime);
 	}
 	void SetCountText()
 	{		
@@ -74,7 +66,7 @@ public class PlayerController : MonoBehaviour
 		if (count >= 110)
 		{
 			winText.text = "You Win!";
-			GameManager.shared.LoadNextLevel();
+			GameManager.shared.LevelEnded (GameManager.EndLevelStatus.Win, ElapsedTime);
 		}
 	}
 }

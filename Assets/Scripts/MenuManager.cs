@@ -24,4 +24,10 @@ public class MenuManager : MonoBehaviour
 
 		GameManager.shared.SelectedCar = info;
 	}
+
+	public void StartGame()
+	{
+		Debug.Log ("Start Game");
+		GameManager.shared.LoadNextLevel ();
+	}
 }

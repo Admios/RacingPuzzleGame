@@ -13,7 +13,7 @@ public class EndScreen : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		TimeLabel.text = PlayerController.shared.Timer.ElapsedTime.ToString() ;
+		TimeLabel.text = GameManager.shared.CurrentInfo.ElapsedTime.ToString() ;
 		BestScoreLabel.text = GameManager.shared.CurrentInfo.TopScore.ToString();
 		ScoreLabel.text = GameManager.shared.CurrentInfo.CollectedCoins.ToString();
 	}

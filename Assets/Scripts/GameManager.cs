@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour 
 {
+	public enum EndLevelStatus
+	{
+		Death, 
+		Win
+	}
+
 	public static GameManager shared { get; private set; }
 
 	public CarInfo SelectedCar;
@@ -39,9 +45,6 @@ public class GameManager : MonoBehaviour
 			if (scene.name == "Start")
 			{
 				Source.Stop();
-				Button button = FindObjectOfType<Button>();
-
-				button.onClick.AddListener( () => { LoadNextLevel(); } );
 			}
 			else
 			{
@@ -51,17 +54,27 @@ public class GameManager : MonoBehaviour
 		};
 	}
 
-	public void PlayerDied()
+	public void LevelEnded(EndLevelStatus status, float elapsedTime)
+	{
+		CurrentInfo.ElapsedTime = elapsedTime;
+
+		switch (status) {
+		case EndLevelStatus.Death:
+			PlayerDied ();
+			break;
+
+		case EndLevelStatus.Win:
+			LoadNextLevel ();
+			break;
+		}
+	}
+
+	private void PlayerDied()
 	{
 		SceneManager.LoadScene ("Start");
 		currentLevelIndex = 0;
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	}
-
+		
 	public void LoadNextLevel()
 	{
 		string nextLevel = string.Empty;
@@ -73,9 +86,10 @@ public class GameManager : MonoBehaviour
 		{
 			nextLevel = Levels [currentLevelIndex];
 			currentLevelIndex += 1;
-
 			CurrentInfo = new PlayInfo (nextLevel);
 		}
 
+		Debug.Log ("Loading: " + nextLevel);
+		SceneManager.LoadScene (nextLevel);
 	}
 }
