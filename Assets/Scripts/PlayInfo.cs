@@ -10,17 +10,18 @@ public class PlayInfo
 	public float ElapsedTime;
 	public string LevelName;
 
-	public int TopScore
+	public float TopScore
 	{
 		get
 		{ 
-			return PlayerPrefs.GetInt ("Score_" + LevelName, 0);
+			return PlayerPrefs.GetFloat ("Score_" + LevelName, 0.0f);
 		}
 		set 
 		{ 
 			if (value > TopScore)
 			{
-				PlayerPrefs.SetInt ("Score_" + LevelName, value);
+				PlayerPrefs.SetFloat ("Score_" + LevelName, value);
+				PlayerPrefs.Save ();
 
 			}
 		}

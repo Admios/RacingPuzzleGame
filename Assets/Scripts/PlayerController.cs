@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	public static PlayerController shared { get; private set; }
 
 	public float ElapsedTime = 0.0f;
+	public int CollectedCoins;
 
 	public float speed; 
 	public Text countText;
@@ -17,12 +18,11 @@ public class PlayerController : MonoBehaviour
 	public Rigidbody rigidbody;
 	public ParticleSystem explosionEffect;
 
-	private int count;
 
 
 	void Start()
 	{
-		count = 0;
+		CollectedCoins = 0;
 		winText.text = "";
 		timerText.text =string.Format("{0:0}:{1:00}", Mathf.Floor(ElapsedTime/60), ElapsedTime % 60);
 		SetCountText();
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 		if (other.gameObject.CompareTag("Pick Up")) 
 		{
 			other.gameObject.SetActive(false);
-			count = count + 10;
+			CollectedCoins = CollectedCoins + 10;
 
 			SetCountText();
 		}
@@ -58,15 +58,16 @@ public class PlayerController : MonoBehaviour
 		explosionEffect.Play();
 		yield return rigidbody.IsSleeping();
 
-		GameManager.shared.LevelEnded(GameManager.EndLevelStatus.Death, ElapsedTime);
+		GameManager.shared.LevelEnded (GameManager.EndLevelStatus.Death, ElapsedTime, CollectedCoins, ElapsedTime);
 	}
+
 	void SetCountText()
 	{		
-		countText.text = string.Format("Count: {0}", count);
-		if (count >= 110)
+		countText.text = string.Format("Count: {0}", CollectedCoins);
+		if (CollectedCoins >= 110)
 		{
 			winText.text = "You Win!";
-			GameManager.shared.LevelEnded (GameManager.EndLevelStatus.Win, ElapsedTime);
+			GameManager.shared.LevelEnded (GameManager.EndLevelStatus.Win, ElapsedTime, CollectedCoins, ElapsedTime);
 		}
 	}
 }

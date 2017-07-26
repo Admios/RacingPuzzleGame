@@ -54,17 +54,18 @@ public class GameManager : MonoBehaviour
 		};
 	}
 
-	public void LevelEnded(EndLevelStatus status, float elapsedTime)
+	public void LevelEnded(EndLevelStatus status, float elapsedTime, int collectedCoins, float topScore)
 	{
-		CurrentInfo.ElapsedTime = elapsedTime;
-
 		switch (status) {
 		case EndLevelStatus.Death:
 			PlayerDied ();
 			break;
 
 		case EndLevelStatus.Win:
-			LoadNextLevel ();
+			CurrentInfo.ElapsedTime = elapsedTime;
+			CurrentInfo.CollectedCoins = collectedCoins;
+			CurrentInfo.TopScore = topScore;
+			SceneManager.LoadScene ("Level-End-Screen");
 			break;
 		}
 	}
