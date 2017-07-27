@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 			CurrentInfo = new PlayInfo (nextLevel);
 		}
 
-		Debug.Log ("Loading: " + nextLevel);
+		//Debug.Log ("Loading: " + nextLevel);
 		SceneManager.LoadScene (nextLevel);
 	}
 }

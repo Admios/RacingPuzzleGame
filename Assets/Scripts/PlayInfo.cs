@@ -18,7 +18,7 @@ public class PlayInfo
 		}
 		set 
 		{ 
-			if (value > TopScore)
+			if (value < TopScore)
 			{
 				PlayerPrefs.SetFloat ("Score_" + LevelName, value);
 				PlayerPrefs.Save ();

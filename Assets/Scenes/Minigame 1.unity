@@ -3848,7 +3848,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5d50cf3ef635cb942a43009b33905c3d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.5
+      value: 7.62
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5d50cf3ef635cb942a43009b33905c3d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -13794,8 +13794,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1097593, y: 8.552986, z: 3.805891}
-  m_Center: {x: 0, y: 4.273821, z: 0}
+  m_Size: {x: 1.1097593, y: 8.552986, z: 2.0852213}
+  m_Center: {x: -1.9847439e-15, y: 4.273821, z: 0.86033493}
 --- !u!1001 &1163992901
 Prefab:
   m_ObjectHideFlags: 0
@@ -22898,8 +22898,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31.341118, y: 15.541443, z: 26.752445}
-  m_Center: {x: 0.0000038146973, y: 7.7707214, z: 0}
+  m_Size: {x: 31.341118, y: 15.541443, z: 22.421175}
+  m_Center: {x: 0.0000038146973, y: 7.7707214, z: 2.165635}
 --- !u!1001 &2009697712
 Prefab:
   m_ObjectHideFlags: 0
