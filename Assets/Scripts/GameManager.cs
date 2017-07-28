@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 			{
 				//Source.clip = Resources.Load<AudioClip>("New");
 				Source.Play();
+				Instantiate(SelectedCar.prefab);
 			}
 		};
 	}
